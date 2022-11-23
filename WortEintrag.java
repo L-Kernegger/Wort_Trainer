@@ -44,7 +44,7 @@ public class WortEintrag{
             this.url = url;
         }
         else{
-            throw new MalformedURLException("Problem with the setter");
+            throw new MalformedURLException("URL doesnt match");
         }
     } 
     /**

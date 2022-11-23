@@ -16,18 +16,20 @@ public class Test {
         WortTrainer i = new WortTrainer(y);
         i.zufall();
         System.out.println("random check");
-        Save_Worttrainer.speichern("test.SEW", i);
         System.out.println(i.wort());
         System.out.println("check check:");
         System.out.println(i.check("Fuchs"));
         System.out.println(i.checkIgnoreCase("FuchS"));
         System.out.println(i.check("FuHchs"));
+        Save_Worttrainer.speichern(i);
         y.deleteEintraege("Fuchs");
         System.out.println("Delete Test:");
         System.out.println(y.toString());
         y.assertionTest();
         System.out.println("kaskjdkjaskjd");
-        Save_Worttrainer.load("test.SEW").toString();
+        WortTrainer p =  Save_Worttrainer.load("debug.SEW");
+        System.out.println(p.toString());
+       
     }
        
 

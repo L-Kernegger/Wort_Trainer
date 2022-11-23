@@ -68,5 +68,13 @@ public class WortTrainer {
         }
         
     }
+    @Override
+    public String toString() {
+        String t = "";
+        if(this.ausgewaehlt != null){
+            t = ausgewaehlt.toString();
+        }
+        return this.traingingsListe.toString() + "\n" + t;
+    }
 
 }

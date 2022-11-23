@@ -13,8 +13,8 @@ public class Save_Worttrainer {
         try { 
             outputStream = new BufferedWriter(new FileWriter(f));
             for(int i = 0;i < temp.length; i++){
-                outputStream.write("*" + temp[i].getWort() + "\n");
-                outputStream.write("!" + temp[i].getUrl()+ "\n");
+                outputStream.write("" + temp[i].getWort() + "\n");
+                outputStream.write("" + temp[i].getUrl()+ "\n");
             }
         } finally {
             if (outputStream != null){
@@ -38,29 +38,39 @@ public class Save_Worttrainer {
             }
             r++;
         }
-        boolean n = false, o = false;
-        System.out.println(t);
         char[] j = t.toCharArray();
-        WortEintrag[] temp = new WortEintrag[p];
+        WortEintrag[] temp = new WortEintrag[p/2];
         for (int i = 0; i < j.length; i++) {
-            if(h % 2 == 0 && !o){
-                System.out.println(k + g);
+            if(h == 2){
                 temp[c] = new WortEintrag(k, g);
+                c++;
+                k = "";
+                g = "";
+                h = 0;
             }
             if(j[i] == '\n'){
-                n = true;
+                if(h == 0){
+                    i++;
+                }
                 h++;
             }
-            if(!n && h % 2 == 0){
+            if(h == 0){
                 k = k + j[i];
             }
-            if(!n && h % 2 == 1){
+            if(h == 1){
                 g = g + j[i];
             }
-            o = true;
+        }
+        if(h == 2){
+            temp[c] = new WortEintrag(k, g);
+            c++;
+            k = "";
+            g = "";
+            h = 0;
         }
         br.close();
         WortTrainer y = new WortTrainer(new WortListe(temp));
+        y.toString();
         return y;
     }
 }
