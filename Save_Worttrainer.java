@@ -73,4 +73,7 @@ public class Save_Worttrainer {
         y.toString();
         return y;
     }
+    public static WortTrainer load() throws IOException{
+        return load("debug.SEW");
+    }
 }
