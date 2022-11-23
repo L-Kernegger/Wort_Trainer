@@ -1,6 +1,13 @@
 import java.io.*;
 public class Save_Worttrainer {
 
+
+    /**
+     * speichert Worttrainer
+     * @param filename der name der file
+     * @param toSave der Worttrainer der gespeichert werden woll
+     * @throws IOException falls des IO net geht
+     */    
     public static void speichern(String filename, WortTrainer toSave ) throws IOException {
         File f = new File(filename);
         BufferedWriter outputStream = null;
@@ -18,11 +25,21 @@ public class Save_Worttrainer {
         }
     }
 
+    /**
+     * default methode der anderen Speichern methode
+     * @param toSave der Worttrainer der gespeichert werden soll
+     * @throws IOException falls des IO net geht
+     */
     public static void speichern(WortTrainer toSave) throws IOException {
         speichern("debug.SEW", toSave);
     }
 
-    
+    /**
+     * 
+     * @param filename
+     * @return
+     * @throws IOException
+     */
     public static WortTrainer load(String filename) throws IOException{
         BufferedReader br=new BufferedReader(new FileReader(filename));
         int r=0,p=0,h=0,c=0;
