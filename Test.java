@@ -26,6 +26,7 @@ public class Test {
         System.out.println("Delete Test:");
         System.out.println(y.toString());
         y.assertionTest();
+        System.out.println("kaskjdkjaskjd");
         Save_Worttrainer.load("test.SEW").toString();
     }
        

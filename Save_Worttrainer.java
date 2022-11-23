@@ -13,8 +13,8 @@ public class Save_Worttrainer {
         try { 
             outputStream = new BufferedWriter(new FileWriter(f));
             for(int i = 0;i < temp.length; i++){
-                outputStream.write("\t* " + temp[i].getWort() + "\n");
-                outputStream.write("\t! " + temp[i].getUrl()+ "\n");
+                outputStream.write("*" + temp[i].getWort() + "\n");
+                outputStream.write("!" + temp[i].getUrl()+ "\n");
             }
         } finally {
             if (outputStream != null){
@@ -29,45 +29,38 @@ public class Save_Worttrainer {
 
     public static WortTrainer load(String filename) throws IOException{
         BufferedReader br=new BufferedReader(new FileReader(filename));
-        int r=0,p=0;
-        String t = "";
+        int r=0,p=0,h=0,c=0;
+        String t = "", k = "", g = "";
         while((r=br.read())!=-1){
             t = t + (char)r;
             if((char)r == '\n'){
                 p++;
             }
+            r++;
         }
+        boolean n = false, o = false;
+        System.out.println(t);
         char[] j = t.toCharArray();
-        int leng = p/2;
-        int inc = 0;
-        String h = "", a = "";
-        WortEintrag[] temp= new WortEintrag[leng]; 
-        for (int i = 0; i < temp.length; i++) {
-            for (int f = 0; f < j.length; f++) {
-                if(j[f] == '*'){
-                    for (int k = 0;j[f] != '\n' ; k++) {
-                        h = h + j[f];
-                        inc = k;
-                    }
-                }
-                f = f + inc;
-                inc = 0;
-                if(j[f] == '!'){
-                    for (int k = 0;j[f] != '\n' ; k++) {
-                        a = a + j[f];
-                        inc = k;
-                    }
-                }
-                i = i + inc;
-                inc = 0;
-                temp[i] = new WortEintrag(h, a);
-                h = "";
-                a = "";
+        WortEintrag[] temp = new WortEintrag[p];
+        for (int i = 0; i < j.length; i++) {
+            if(h % 2 == 0 && !o){
+                System.out.println(k + g);
+                temp[c] = new WortEintrag(k, g);
             }
+            if(j[i] == '\n'){
+                n = true;
+                h++;
+            }
+            if(!n && h % 2 == 0){
+                k = k + j[i];
+            }
+            if(!n && h % 2 == 1){
+                g = g + j[i];
+            }
+            o = true;
         }
-        WortListe y = new WortListe(temp);
         br.close();
-        return new WortTrainer(y);
-        
+        WortTrainer y = new WortTrainer(new WortListe(temp));
+        return y;
     }
 }
