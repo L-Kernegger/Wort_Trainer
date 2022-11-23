@@ -1,10 +1,5 @@
 import java.io.*;
-import java.nio.*;
 public class Save_Worttrainer {
-    private String name;
-    private String[] eintraege;
-
-
 
     public static void speichern(String filename, WortTrainer toSave ) throws IOException {
         File f = new File(filename);
@@ -27,6 +22,7 @@ public class Save_Worttrainer {
         speichern("debug.SEW", toSave);
     }
 
+    
     public static WortTrainer load(String filename) throws IOException{
         BufferedReader br=new BufferedReader(new FileReader(filename));
         int r=0,p=0,h=0,c=0;
