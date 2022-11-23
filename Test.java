@@ -16,7 +16,7 @@ public class Test {
         WortTrainer i = new WortTrainer(y);
         i.zufall();
         System.out.println("random check");
-        Save_Worttrainer.speichern("test", i);
+        Save_Worttrainer.speichern("test.SEW", i);
         System.out.println(i.wort());
         System.out.println("check check:");
         System.out.println(i.check("Fuchs"));
@@ -26,7 +26,7 @@ public class Test {
         System.out.println("Delete Test:");
         System.out.println(y.toString());
         y.assertionTest();
-        
+        Save_Worttrainer.load("test.SEW").toString();
     }
        
 

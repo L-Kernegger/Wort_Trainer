@@ -21,6 +21,20 @@ public class WortListe {
         }
         
     }
+
+    /**
+     * constructor
+     * @param länge länge des Arrays
+     */
+    public WortListe (WortEintrag[] liste) throws NullPointerException{
+        if(liste != null){
+            this.eintraege = liste;
+            this.anzahlEintraege = this.eintraege.length;
+        } else{
+            throw new NullPointerException();
+        }
+    }
+
     /**
      * 
      * @param eintrag hinzuzufügender Beitrag
