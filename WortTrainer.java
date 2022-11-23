@@ -26,6 +26,14 @@ public class WortTrainer {
 
     /**
      * ein getter
+     * @return die Liste
+     */
+    public WortListe getTraingingsListe() {
+        return traingingsListe;
+    }
+
+    /**
+     * ein getter
      * @return
      */
     public WortEintrag wort(){
