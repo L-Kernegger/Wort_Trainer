@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.charset.MalformedInputException;
@@ -31,7 +32,8 @@ public class Test {
         System.out.println("kaskjdkjaskjd");
         WortTrainer p =  Save_Worttrainer.load("debug.SEW");
         System.out.println(p.toString());
-       
+        File f = new File("debug.SEW");
+        f.delete();
     }
        
 
