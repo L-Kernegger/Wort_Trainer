@@ -2,6 +2,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.charset.MalformedInputException;
 
+import Model.*;
+
 public class Test {
     public static void main(String[] args) throws MalformedURLException, MalformedInputException, IOException{
         WortEintrag x = new WortEintrag("Auto", "https://cdn.motor1.com/images/mgl/EKJ2B/s3/auto-neuheiten-2021-2022.jpg");

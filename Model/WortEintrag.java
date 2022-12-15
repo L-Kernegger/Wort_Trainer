@@ -1,3 +1,4 @@
+package Model;
 /**
  * Eine Klasse um Bilder mit Urls zu verknüpfen
  * @author Kernegger Leopold
